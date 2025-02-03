@@ -4,12 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // BOOTSTRAP ICONS
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-
 function Navbar() {
     return (
         <nav className="navbar px-3 navbar-expand-lg bg-transparent">
             <div className="container-fluid d-flex justify-content-between align-items-center">
-
                 {/* Logo / Brand */}
                 <a href="#" className="navbar-brand fw-bold">TRADE</a>
 
@@ -28,12 +26,7 @@ function Navbar() {
 
                 {/* Profile Section */}
                 <div className="profile d-flex align-items-center">
-                    <img
-                        src="..\src\assets\pfp.jpg"
-                        className="img-fluid rounded-circle"
-                        alt="Profile"
-                        style={{ height: "30px", width: "30px", marginRight: "8px" }}
-                    />
+                    <img src="..\src\assets\pfp.jpg" className="img-fluid rounded-circle" alt="Profile" style={{ height: "30px", width: "30px", marginRight: "8px" }} />
                     <img src="..\src\assets\ArrowPfp.svg" alt="" />
                 </div>
             </div>
