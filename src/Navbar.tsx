@@ -28,13 +28,16 @@ function Navbar() {
 
                 {/* Profile Section */}
                 <div className="profile d-flex align-items-center">
-                    <img
-                        src="..\src\assets\pfp.jpg"
-                        className="img-fluid rounded-circle"
-                        alt="Profile"
-                        style={{ height: "30px", width: "30px", marginRight: "8px" }}
-                    />
-                    <img src="..\src\assets\ArrowPfp.svg" alt="" />
+                    <a href='#'>
+                        <img
+                            src="..\src\assets\pfp.jpg"
+                            className="img-fluid rounded-circle"
+                            alt="Profile"
+                            style={{ height: "30px", width: "30px", marginRight: "8px" }}
+                        />
+                        <img src="..\src\assets\ArrowPfp.svg" alt="" />                        
+                    </a>
+
                 </div>
             </div>
         </nav>
