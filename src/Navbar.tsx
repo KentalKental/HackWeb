@@ -4,12 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // BOOTSTRAP ICONS
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-
 function Navbar() {
     return (
         <nav className="navbar px-3 navbar-expand-lg bg-transparent">
             <div className="container-fluid d-flex justify-content-between align-items-center">
-
                 {/* Logo / Brand */}
                 <a href="#" className="navbar-brand fw-bold">TRADE</a>
 
