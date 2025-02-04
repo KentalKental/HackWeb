@@ -17,3 +17,12 @@ function CommunityCard(props: { image: string | undefined; name: string | number
 }
 
 export default CommunityCard
+
+// LAYOUT FOR COMMUNITY CARD IN LANDING PAGE
+{/* <div className="container">
+<div className="row d-flex">
+  <div className="col-4"><CommunityCard name="Bonding" image=".\src\assets\community-card-bonding.jpg"></CommunityCard></div>
+  <div className="col-4"><CommunityCard name="Build" image=".\src\assets\community-card-build.jpg"></CommunityCard></div>
+  <div className="col-4"><CommunityCard name="Breakthrough" image=".\src\assets\community-card-breakthrough.jpg"></CommunityCard></div>
+</div>
+</div> */}
