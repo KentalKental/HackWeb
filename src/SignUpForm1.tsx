@@ -7,7 +7,12 @@ import * as yup from "yup";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function Form1() {
+interface Form1Props {
+  nextStep: (data: any) => void;
+  initialValues: any;
+}
+
+function Form1({ nextStep, initialValues }: Form1Props) {
   const { Formik } = formik;
 
   const schema = yup.object().shape({
@@ -34,15 +39,8 @@ function Form1() {
   return (
     <Formik
       validationSchema={schema}
-      onSubmit={console.log}
-      initialValues={{
-        email: "",
-        password1: "",
-        password2: "",
-        username: "",
-        datepick: null,
-        terms: false,
-      }}
+      onSubmit={(values) => nextStep(values)}
+      initialValues={initialValues}
     >
       {({
         handleSubmit,
@@ -65,7 +63,7 @@ function Form1() {
               isInvalid={touched.email && !!errors.email}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.email}
+              {typeof errors.email === "string" ? errors.email : ""}
             </Form.Control.Feedback>
             <Form.Control.Feedback type="valid">
               Email is valid !
@@ -81,17 +79,16 @@ function Form1() {
                 name="username"
                 value={values.username}
                 onChange={handleChange}
-                isInvalid={!!errors.username && touched.username}
-                isValid={!errors.username && touched.username}
+                isInvalid={touched.username && !!errors.username }
+                isValid={touched.username && !errors.username}
               />
-            <Form.Control.Feedback type="invalid">
-              {errors.username}
-            </Form.Control.Feedback>
-            <Form.Control.Feedback type="valid">
-              Looks good!
-            </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">
+                {typeof errors.username === "string" ? errors.username : ""}
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="valid">
+                Looks good!
+              </Form.Control.Feedback>
             </InputGroup>
-
           </Form.Group>
 
           <Form.Group as={Col} md="4" controlId="validationFormik02">
@@ -110,7 +107,7 @@ function Form1() {
                 Looks good!
               </Form.Control.Feedback>
               <Form.Control.Feedback type="invalid">
-                {errors.password1}
+                {typeof errors.password1 === "string" ? errors.password1 : ""}
               </Form.Control.Feedback>
             </InputGroup>
           </Form.Group>
@@ -127,7 +124,7 @@ function Form1() {
               isValid={touched.password2 && !errors.password2}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.password2}
+              {typeof errors.password2 === "string" ? errors.password2 : ""}
             </Form.Control.Feedback>
             <Form.Control.Feedback type="valid">
               Looks good!
@@ -137,6 +134,7 @@ function Form1() {
             <Form.Label>Birth Date</Form.Label>
             <DatePicker
               selected={values.datepick} // Bind to Formik values
+              name="datepick"
               onChange={(date) => setFieldValue("datepick", date)} // Update Formik state
               onBlur={() => setFieldTouched("datepick", true)} // Mark as touched
               className={`form-control ${
@@ -149,26 +147,9 @@ function Form1() {
               dropdownMode="select"
               minDate={new Date("1900-01-01")}
             />
-            {touched.datepick && errors.datepick && (
-              <div className="invalid-feedback">{errors.datepick}</div> // Show validation errors
-            )}
-            {/* <Form.Control.Feedback type="invalid">
-                {errors.state}
-              </Form.Control.Feedback> */}
           </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Check
-              required
-              name="terms"
-              label="Agree to terms and conditions"
-              onChange={handleChange}
-              isInvalid={!!errors.terms}
-              feedback={errors.terms}
-              feedbackType="invalid"
-              id="validationFormik0"
-            />
-          </Form.Group>
-          <Button type="submit">Submit form</Button>
+          
+          <Button type="submit">Continue</Button>
         </Form>
       )}
     </Formik>

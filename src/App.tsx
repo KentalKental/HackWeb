@@ -9,7 +9,7 @@ import Footer from './Footer'
 import SearchButton from './SearchButton'
 
 import './App.css'
-import SignUp1 from './SignUpForm1'
+import MultiStepForm from './MultiStepForm';
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
     <>
       <Navbar></Navbar>
       <div className="sign-up-part">
-        <SignUp1></SignUp1>
+        <MultiStepForm></MultiStepForm>
       </div>
       <Footer></Footer>
       

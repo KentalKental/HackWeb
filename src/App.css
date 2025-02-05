@@ -10,4 +10,33 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  height: 750px;
+  align-items: center;
+}
+
+.sign-up-part signUpContainer{
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sign-up-part form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.col-md-4{
+  width: 100%;
+}
+
+.col-md-3{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up-part .signUpContainer .btn {
+  margin-top: 15px;
 }

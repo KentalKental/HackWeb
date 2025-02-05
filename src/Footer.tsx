@@ -1,10 +1,16 @@
 function Footer() {
     return (
         <>
-            <div className="container-expand  d-flex justify-content-around p-4" style={{ background: "#8f83ff", color: "white", borderTopLeftRadius: "150px", borderTopRightRadius: "150px" }}>
+            <div className="container-expand  d-flex justify-content-around p-4" style={{ background: "#8f83ff", color: "white", borderTopLeftRadius: "90px", borderTopRightRadius: "90px",minHeight:""}}>
                 <div>
-                    <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", lineHeight: "1.5" }}>
-                        BOND, <br /> BUILD, <br /> BREAKTHROUGH
+                    <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", lineHeight: "0.75" }}>
+                        BOND, 
+                    </h1>
+                    <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", lineHeight: "0.75" }}>
+                        BUILD, 
+                    </h1>
+                    <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", lineHeight: "0.75" }}>
+                        BREAKTHROUGH
                     </h1>
                 </div>
                 <div className="d-flex flex-column gap-4 justify-content-around" style={{ alignItems: "center", width: "40%" }}>
