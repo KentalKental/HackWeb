@@ -13,11 +13,11 @@ function App() {
 
   return (
     <>
-      <div className="container allign-items-center">
+      {/* <div className="container allign-items-center">
         <div className="container">
           <ProfileBiodata></ProfileBiodata>
         </div>
-      </div>
+      </div> */}
       <Navbar></Navbar>
       <div className="sign-up-part">
         <MultiStepForm></MultiStepForm>
