@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .sign-up-part{
@@ -15,7 +15,7 @@
 }
 
 .sign-up-part signUpContainer{
-  width: 35%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   justify-content: center;
