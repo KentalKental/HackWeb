@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Form1 from "./SignUpForm1";
 import Form2 from "./SignUpForm2";
+import Navbar from "./Component/Navbar";
+import Footer from "./Component/Footer";
+
 
 function MultiStepForm() {
   const [formData, setFormData] = useState({
@@ -51,7 +54,7 @@ function MultiStepForm() {
   };
 
   return (
-    <div className="signUpContainer">
+    <><Navbar></Navbar><div className="signUpContainer">
       {step === 1 && (
         <Form1 nextStep={nextStep} initialValues={formData}></Form1>
       )}
@@ -59,6 +62,8 @@ function MultiStepForm() {
         <Form2 submitForm={submitForm} initialValues={formData} setStep={setStep}></Form2>
       )}
     </div>
+    <Footer></Footer></>
+    
   );
 }
 
