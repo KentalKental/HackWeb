@@ -17,10 +17,6 @@ function MultiStepForm() {
 
   const [step, setStep] = useState(1);
 
-  const prevStep = () => {
-    setStep(1);
-  };
-
   const nextStep = (data: {
     email: string;
     username: string;
