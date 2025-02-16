@@ -16,12 +16,11 @@ function Form1({ nextStep, initialValues }: Form1Props) {
   const { Formik } = formik;
 
   const schema = yup.object().shape({
-    datepick: yup.date().required("Date is Required !"),
+    datepick: yup.date().nullable().required("Date is Required !"),
     username: yup
       .string()
       .min(6, "Username must be at least 6 characters long")
       .required("Username is Required !"),
-    terms: yup.bool().required().oneOf([true], "Terms must be accepted"),
     email: yup
       .string()
       .email("Invalid email address")
@@ -40,8 +39,7 @@ function Form1({ nextStep, initialValues }: Form1Props) {
     <Formik
       validationSchema={schema}
       onSubmit={(values) => {
-        alert("Formik Submit Triggered");
-        nextStep(values)
+        nextStep(values);
       }}
       initialValues={initialValues}
     >
@@ -150,9 +148,10 @@ function Form1({ nextStep, initialValues }: Form1Props) {
               dropdownMode="select"
               minDate={new Date("1900-01-01")}
             />
+            
           </Form.Group>
 
-          <Button type="submit" onClick={()=>{alert("Bacod");onsubmit}}>Continue</Button>
+          <Button type="submit">Continue</Button>
         </Form>
       )}
     </Formik>

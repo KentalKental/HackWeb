@@ -10,16 +10,13 @@ function MultiStepForm() {
     password2: "",
     datepick: null as Date | null,
     theme: [] as string[],
+    city: "",
     level: "",
     regulation: false,
     subscribe: false,
   });
 
-  const [step, setStep] = useState(1);
-
-  const prevStep = () => {
-    setStep(1); // Or use setStep((prevStep) => prevStep - 1) for dynamic step navigation
-  };
+  const [step, setStep] = useState(2);
 
   const nextStep = (data: {
     email: string;
@@ -59,7 +56,7 @@ function MultiStepForm() {
         <Form1 nextStep={nextStep} initialValues={formData}></Form1>
       )}
       {step === 2 && (
-        <Form2 submitForm={submitForm} initialValues={formData}></Form2>
+        <Form2 submitForm={submitForm} initialValues={formData} setStep={setStep}></Form2>
       )}
     </div>
   );

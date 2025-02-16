@@ -8,6 +8,7 @@ import './App.css'
 import MultiStepForm from './MultiStepForm';
 import Navbar from './Component/Navbar';
 import ProfileBiodata from './Component/ProfileBiodata';
+import Footer from './Component/Footer';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <div className="sign-up-part">
         <MultiStepForm></MultiStepForm>
       </div>
+      <Footer></Footer>
     </>
   )
 }
