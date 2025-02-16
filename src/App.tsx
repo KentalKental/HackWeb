@@ -11,6 +11,8 @@ import ProfileBiodata from './Component/ProfileBiodata';
 import OuterGlassContainer from './Component/OuterGlassContainer';
 import InnerGlassContainer from './Component/InnerGlassContainer';
 import Home from './Home';
+import Footer from './Component/Footer';
+
 function App() {
 
   return (

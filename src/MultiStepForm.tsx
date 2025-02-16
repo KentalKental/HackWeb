@@ -8,8 +8,9 @@ function MultiStepForm() {
     username: "",
     password1: "",
     password2: "",
-    datepick: null,
-    theme: [],
+    datepick: null as Date | null,
+    theme: [] as string[],
+    city: "",
     level: "",
     regulation: false,
     subscribe: false,
@@ -22,12 +23,13 @@ function MultiStepForm() {
     username: string;
     password1: string;
     password2: string;
-    datepick: null;
-    theme: never[];
+    datepick: Date | null;
+    theme: string[];
     level: string;
     regulation: boolean;
     subscribe: boolean;
   }) => {
+    console.log("Next step data :", data);
     setFormData((prevData) => ({ ...prevData, ...data }));
     setStep(2);
   };
@@ -37,14 +39,14 @@ function MultiStepForm() {
     username: string;
     password1: string;
     password2: string;
-    datepick: null;
-    theme: never[];
+    datepick: Date | null;
+    theme: string[];
     level: string;
     regulation: boolean;
     subscribe: boolean;
   }) => {
     setFormData((prevData) => ({ ...prevData, ...val }));
-    console.log("Submitting :", formData);
+    console.log("Submitting :", val); // Log the val directly
     //submit to backend
   };
 
@@ -54,11 +56,7 @@ function MultiStepForm() {
         <Form1 nextStep={nextStep} initialValues={formData}></Form1>
       )}
       {step === 2 && (
-        <Form2
-          submitForm={submitForm}
-          initialValues={formData}
-          setFormData={setFormData}
-        ></Form2>
+        <Form2 submitForm={submitForm} initialValues={formData} setStep={setStep}></Form2>
       )}
     </div>
   );
