@@ -10,25 +10,12 @@ import Navbar from './Component/Navbar';
 import ProfileBiodata from './Component/ProfileBiodata';
 import OuterGlassContainer from './Component/OuterGlassContainer';
 import InnerGlassContainer from './Component/InnerGlassContainer';
+import Home from './Home';
 function App() {
 
   return (
     <>
-      <div className="container allign-items-center">
-        <div className="container">
-          <ProfileBiodata></ProfileBiodata>
-          
-        </div>
-      </div>
-      <Navbar></Navbar>
-      <div className="sign-up-part">
-        <MultiStepForm></MultiStepForm>
-        
-      </div>
-      <div className="glass-container-part">
-        <OuterGlassContainer>
-        </OuterGlassContainer>
-      </div>
+      <Home></Home>
     </>
   )
 }

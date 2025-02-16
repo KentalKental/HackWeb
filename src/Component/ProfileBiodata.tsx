@@ -2,11 +2,12 @@ import { useState } from "react";
 
 import ProfileBiodataStyleCard from "./ProfileBiodataStyleCard";
 
-function ProfileBiodata(props) {
+function ProfileBiodata(props: { instagram: string; twitter: string; linkedin: string; telegram: string; whatsapp: string; lineid: string; }) {
     const [activeTab, setActiveTab] = useState("home");
 
     return (
         <>
+        
             <ul className="nav nav-tabs m-2" id="myTab" role="tablist">
                 <li className="nav-item" role="presentation">
                     <button className={"nav-link " + (activeTab === "home" ? "active" : "")} onClick={() => setActiveTab("home")} type="button">Home</button>

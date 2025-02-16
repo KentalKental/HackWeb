@@ -3,7 +3,7 @@ import ProfileBiodata from './ProfileBiodata';
 const InnerGlassContainer = () => {
     return (
         <div className="inner-glass-container">
-            <ProfileBiodata></ProfileBiodata>
+            <ProfileBiodata props={{}}></ProfileBiodata>
         </div>
     );
 };
