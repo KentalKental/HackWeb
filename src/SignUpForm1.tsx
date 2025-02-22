@@ -16,12 +16,11 @@ function Form1({ nextStep, initialValues }: Form1Props) {
   const { Formik } = formik;
 
   const schema = yup.object().shape({
-    datepick: yup.date().required("Date is Required !"),
+    datepick: yup.date().nullable().required("Date is Required !"),
     username: yup
       .string()
       .min(6, "Username must be at least 6 characters long")
       .required("Username is Required !"),
-    terms: yup.bool().required().oneOf([true], "Terms must be accepted"),
     email: yup
       .string()
       .email("Invalid email address")
@@ -39,7 +38,9 @@ function Form1({ nextStep, initialValues }: Form1Props) {
   return (
     <Formik
       validationSchema={schema}
-      onSubmit={(values) => nextStep(values)}
+      onSubmit={(values) => {
+        nextStep(values);
+      }}
       initialValues={initialValues}
     >
       {({
@@ -61,6 +62,7 @@ function Form1({ nextStep, initialValues }: Form1Props) {
               onChange={handleChange}
               value={values.email}
               isInvalid={touched.email && !!errors.email}
+              isValid={touched.email && !errors.email}
             />
             <Form.Control.Feedback type="invalid">
               {typeof errors.email === "string" ? errors.email : ""}
@@ -79,7 +81,7 @@ function Form1({ nextStep, initialValues }: Form1Props) {
                 name="username"
                 value={values.username}
                 onChange={handleChange}
-                isInvalid={touched.username && !!errors.username }
+                isInvalid={touched.username && !!errors.username}
                 isValid={touched.username && !errors.username}
               />
               <Form.Control.Feedback type="invalid">
@@ -91,7 +93,7 @@ function Form1({ nextStep, initialValues }: Form1Props) {
             </InputGroup>
           </Form.Group>
 
-          <Form.Group as={Col} md="4" controlId="validationFormik02">
+          <Form.Group as={Col} md="4" controlId="validationFormikPass">
             <Form.Label>Password</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
@@ -112,7 +114,7 @@ function Form1({ nextStep, initialValues }: Form1Props) {
             </InputGroup>
           </Form.Group>
 
-          <Form.Group as={Col} md="4" controlId="validationFormik02">
+          <Form.Group as={Col} md="4" controlId="validationFormikConfPass">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
               type="password"
@@ -133,22 +135,22 @@ function Form1({ nextStep, initialValues }: Form1Props) {
           <Form.Group as={Col} md="3" controlId="validationFormik04">
             <Form.Label>Birth Date</Form.Label>
             <DatePicker
-              selected={values.datepick} // Bind to Formik values
-              name="datepick"
-              onChange={(date) => setFieldValue("datepick", date)} // Update Formik state
-              onBlur={() => setFieldTouched("datepick", true)} // Mark as touched
+              selected={values.datepick}
+              onChange={(date) => setFieldValue("datepick", date)}
+              onBlur={() => setFieldTouched("datepick", true)}
               className={`form-control ${
                 touched.datepick && errors.datepick ? "is-invalid" : ""
-              }`} // Bootstrap styling
-              dateFormat="yyyy-MM-dd" // Format date
+              }`}
+              dateFormat="yyyy-MM-dd"
               placeholderText="yyyy-mm-dd"
               showMonthDropdown
               showYearDropdown
               dropdownMode="select"
               minDate={new Date("1900-01-01")}
             />
+            
           </Form.Group>
-          
+
           <Button type="submit">Continue</Button>
         </Form>
       )}

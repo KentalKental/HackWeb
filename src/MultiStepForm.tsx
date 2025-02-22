@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Form1 from "./SignUpForm1";
 import Form2 from "./SignUpForm2";
+import Navbar from "./Component/Navbar";
+import Footer from "./Component/Footer";
+
 
 function MultiStepForm() {
   const [formData, setFormData] = useState({
@@ -8,8 +11,9 @@ function MultiStepForm() {
     username: "",
     password1: "",
     password2: "",
-    datepick: null,
-    theme: [],
+    datepick: null as Date | null,
+    theme: [] as string[],
+    city: "",
     level: "",
     regulation: false,
     subscribe: false,
@@ -17,21 +21,18 @@ function MultiStepForm() {
 
   const [step, setStep] = useState(1);
 
-  const prevStep = () => {
-    setStep(1);
-  };
-
   const nextStep = (data: {
     email: string;
     username: string;
     password1: string;
     password2: string;
-    datepick: null;
-    theme: never[];
+    datepick: Date | null;
+    theme: string[];
     level: string;
     regulation: boolean;
     subscribe: boolean;
   }) => {
+    console.log("Next step data :", data);
     setFormData((prevData) => ({ ...prevData, ...data }));
     setStep(2);
   };
@@ -41,30 +42,28 @@ function MultiStepForm() {
     username: string;
     password1: string;
     password2: string;
-    datepick: null;
-    theme: never[];
+    datepick: Date | null;
+    theme: string[];
     level: string;
     regulation: boolean;
     subscribe: boolean;
   }) => {
     setFormData((prevData) => ({ ...prevData, ...val }));
-    console.log("Submitting :", formData);
+    console.log("Submitting :", val); // Log the val directly
     //submit to backend
   };
 
   return (
-    <div className="signUpContainer">
+    <><Navbar></Navbar><div className="signUpContainer">
       {step === 1 && (
         <Form1 nextStep={nextStep} initialValues={formData}></Form1>
       )}
       {step === 2 && (
-        <Form2
-          submitForm={submitForm}
-          initialValues={formData}
-          setFormData={setFormData}
-        ></Form2>
+        <Form2 submitForm={submitForm} initialValues={formData} setStep={setStep}></Form2>
       )}
     </div>
+    <Footer></Footer></>
+    
   );
 }
 
