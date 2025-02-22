@@ -1,16 +1,16 @@
-import React from 'react'
 import './index.css'
-import Navbar from './Component/Navbar'
-import Hero from './Component/HomeHero'
-import Body from './Component/HomeBody'
+import Hero from './Component/Home_page/HomeHero'
+import Body from './Component/Home_page/HomeBody'
+import Section from './Component/Home_page/HomeSection'
+import Footer from './Component/Footer'
 
 function Home() {
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className='bg-[#FAFAFA]'>
             <Hero></Hero>
             <Body></Body>
-            
+            <Section></Section>
+            <Footer></Footer>
         </div>
     )
 }

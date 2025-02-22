@@ -1,7 +1,7 @@
 const Navbar = () => {
 
     return (
-        <div className="flex justify-between items-center h-16 max-w-[1700px] mx-auto my-auto">
+        <div className="flex justify-between items-center h-16 w-full border-b-2 border-[#C5C5C550] px-20 shadow-sm">
             <a className="font-bold text-xl !text-[#2b2b2b] !no-underline p-2" href="">HACKWEB</a>
             <ul className="flex gap-2 my-2 font-medium">
                 <li className="p-2 cursor-pointer text-[#2b2b2b]">
